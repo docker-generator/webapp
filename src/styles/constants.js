@@ -16,7 +16,10 @@ const shadows =  {
 }
 
 const colors = {
-    primary_100: 'rgba(11,36,251,1)',
+    white: '#fff',
+    black: '#000',
+
+    primary: 'rgba(11,36,251,1)',
     primary_90: 'rgba(11,36,251,0.9)',
     primary_80: 'rgba(11,36,251,0.8)',
     primary_70: 'rgba(11,36,251,0.7)',
@@ -25,7 +28,7 @@ const colors = {
     primary_40: 'rgba(11,36,251,0.4)',
     primary_30: 'rgba(11,36,251,0.3)',
 
-    secondary_100: 'rgba(115,86,191,1)',
+    secondary: 'rgba(115,86,191,1)',
     secondary_90: 'rgba(115,86,191,0.9)',
     secondary_80: 'rgba(115,86,191,0.8)',
     secondary_70: 'rgba(115,86,191,0.7)',
@@ -34,10 +37,10 @@ const colors = {
     secondary_40: 'rgba(115,86,191,0.4)',
     secondary_30: 'rgba(115,86,191,0.3)',
 
-    green_100: 'rgba(5,148,79, 1)',
-    orange_100: 'rgba(255,192,67, 1)',
-    red_100: 'rgba(255,105,55, 1)',
-    blue_100: 'rgba(78,172,249, 1)',
+    green: 'rgba(5,148,79, 1)',
+    orange: 'rgba(255,192,67, 1)',
+    red: 'rgba(255,105,55, 1)',
+    blue: 'rgba(78,172,249, 1)',
 
     green_50: 'rgba(5,148,79, 0.5)',
     orange_50: 'rgba(255,192,67, 0.5)',
