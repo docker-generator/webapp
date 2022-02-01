@@ -17,8 +17,8 @@ export const weights = {
 }
 
 export const base = styled.p`
-    font-size: ${props => props.size ? sizes[props.size] : sizes.regular};
-    font-weight: ${props => props.weight ? weights[props.weight] : weights.regular};
+    font-size: ${props => props.size ? props.size : sizes.regular};
+    font-weight: ${props => props.weight ? props.weight : weights.regular};
     color: ${props => props.color ? props.color : colors.black};
     margin: 0;
     padding: 0;
