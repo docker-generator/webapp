@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { HomeListItem } from 'components'
 import { containers, texts } from 'styles'
 

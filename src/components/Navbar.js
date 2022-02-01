@@ -1,6 +1,6 @@
 import react, { useContext } from 'react'
 import styled from 'styled-components'
-import { buttons, constants, texts } from 'styles'
+import { constants, texts } from 'styles'
 import { MainContext } from 'stores'
 import { Link } from 'react-router-dom'
 import logo from 'assets/logo.svg'
