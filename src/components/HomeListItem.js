@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { constants, texts, buttons } from 'styles'
 
@@ -8,6 +9,7 @@ const ItemContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
+    box-sizing: border-box;
     height: 70px;
     width: 100%;
     background-color: ${constants.colors.secondary_10};
@@ -15,7 +17,7 @@ const ItemContainer = styled.div`
     margin-bottom: 1rem;
 `
 
-const ItemInfos = styled.div`
+const ItemInfos = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -40,7 +42,7 @@ export default function HomeListItem(props) {
 
     return (
         <ItemContainer>
-            <ItemInfos>
+            <ItemInfos to={`/edit/${id}`}>
                 <texts.base>{title}</texts.base>
                 <texts.base size={texts.sizes.small}>{description}</texts.base>
             </ItemInfos>

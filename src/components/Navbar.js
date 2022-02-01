@@ -2,9 +2,8 @@ import react, { useContext } from 'react'
 import styled from 'styled-components'
 import { buttons, constants, texts } from 'styles'
 import { MainContext } from 'stores'
-
-import logo from 'assets/logo.svg'
 import { Link } from 'react-router-dom'
+import logo from 'assets/logo.svg'
 
 const Nav = styled.div`
     width: 100%;
@@ -27,7 +26,7 @@ const NavCol = styled.div`
     flex-direction: row;
     align-items: center;
 
-    & > img {
+    & img {
         width: 50px;
         height: 50px;
         object-fit: contain;
@@ -53,12 +52,15 @@ export default function Navbar() {
         <Nav>
             <NavContainer>
                 <NavCol>
-                    <img src={logo} alt="logo" />
+                    <Link to="/">
+                        <img src={logo} alt="logo" />
+                    </Link>
                 </NavCol>
                 <NavCol>
                     <texts.base>
                         <Link to="/">Dashboard</Link>
                     </texts.base>
+                    {state.loggedIn && <UserDropDown />}
                 </NavCol>
             </NavContainer>
         </Nav>
