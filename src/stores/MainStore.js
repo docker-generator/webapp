@@ -7,7 +7,10 @@ class MainProvider extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {}
+        this.state = {
+            loading: false,
+            loggedIn: false,
+        }
 
         this.actions = {}
     }

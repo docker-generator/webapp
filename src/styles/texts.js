@@ -23,6 +23,10 @@ export const base = styled.p`
     margin: 0;
     padding: 0;
 
+    & > a {
+        color: ${props => props.color ? props.color : colors.black};
+    }
+
     ${props => props.center && css`text-align: center;`}
     ${props => props.styles && css`${props.styles}`}
 `

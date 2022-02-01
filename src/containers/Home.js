@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { containers } from 'styles'
 
 export default class Home extends Component {
     render() {
         return (
-            <div>
-                Hello world
-            </div>
+            <containers.main>
+                <h1>Home</h1>
+            </containers.main>
         )
     }
 }
