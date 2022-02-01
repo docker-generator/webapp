@@ -17,7 +17,7 @@ const mockData = [
 
 export default function Home() {
     return (
-        <containers.main>
+        <containers.main styles={{ marginTop: '45px' }}>
             <texts.base
                 size={texts.sizes.title_regular}
                 weight={texts.weights.bold}
