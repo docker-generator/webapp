@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 1.6rem;
     box-sizing: border-box;
     height: 70px;
     width: 100%;
@@ -33,7 +33,7 @@ const ItemButtons = styled.div`
     height: 100%;
 
     & > * {
-        margin-right: 1rem;
+        margin-left: 1rem;
     }
 `
 
