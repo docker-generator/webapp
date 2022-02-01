@@ -12,11 +12,11 @@ export default function IconInput(props) {
                     alt=""
                     style={{
                         position: 'absolute',
-                        top: '0.5rem',
-                        left: '1rem',
+                        top: '0.6rem',
+                        left: '0.9rem',
                         objectFit: 'contain',
-                        height: '1.5rem',
-                        width: '1.5rem',
+                        height: '1.3rem',
+                        width: '1.3rem',
                     }}
                 />
             </div>

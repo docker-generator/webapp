@@ -1,7 +1,7 @@
 import React from 'react'
 import { HomeListItem, IconInput } from 'components'
 import { buttons, containers, texts, inputs } from 'styles'
-import logo from 'assets/logo.svg'
+import ic_search from 'assets/images/ic-search.svg'
 
 const mockData = [
     {
@@ -28,7 +28,7 @@ export default function Home() {
                         style={{ marginBottom: '20px' }}
                     >My setups</texts.base>
 
-                    <IconInput icon={logo}>
+                    <IconInput icon={ic_search}>
                         <inputs.base
                             icon={true}
                             type={'text'}
