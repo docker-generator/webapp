@@ -6,7 +6,7 @@ export default function IconInput(props) {
     if (icon) {
         return (
             <div style={{ position: 'relative' }}>
-                {children}
+                {React.cloneElement(children, { icon: true })}
                 <img
                     src={icon}
                     alt=""

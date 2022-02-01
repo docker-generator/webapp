@@ -30,7 +30,6 @@ export default function Home() {
 
                     <IconInput icon={ic_search}>
                         <inputs.base
-                            icon={true}
                             type={'text'}
                             name={'search'}
                             placeholder={'Search'}
@@ -38,7 +37,7 @@ export default function Home() {
                                 width: '100%',
                                 maxWidth: '375px',
                             }}
-                            />
+                        />
                     </IconInput>
                 </containers.col_left>
 
