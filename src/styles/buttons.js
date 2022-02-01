@@ -7,6 +7,7 @@ const base = css`
     border-radius: 0.5rem;
     color: ${colors.white};
     cursor: pointer;
+    transition: background 0.2s ease-in-out;
     
     & > a {
         color: ${colors.white};
@@ -14,20 +15,52 @@ const base = css`
 `
 
 const primaryBase = css`
-    background-color: ${props => props.variant ? colors[`primary_${props.variant}`] : colors.primary};
+    background: ${props => props.variant ? colors[`primary_${props.variant}`] : colors.primary};
 
     ${props => props.disabled && css`
         cursor: not-allowed;
-        background-color: ${colors.primary_30};
+        background: ${colors.primary_30};
+        pointer-events: none;
+    `}
+
+    ${props => !props.disabled && css`
+        &:hover {
+            background: ${props => (
+                (props.variant ? 
+                    props.variant > 30 ?
+                        colors[`primary_${props.variant - 30}`]
+                    :
+                        colors[`primary_${props.variant + 30}`]
+                :
+                    colors.primary_70
+                )
+            )};
+        }
     `}
 `
 
 const secondaryBase = css`
-    background-color: ${props => props.variant ? colors[`secondary_${props.variant}`] : colors.secondary};
+    background: ${props => props.variant ? colors[`secondary_${props.variant}`] : colors.secondary};
 
     ${props => props.disabled && css`
         cursor: not-allowed;
-        background-color: ${colors.secondary_30};
+        background: ${colors.secondary_30};
+        pointer-events: none;
+    `}
+
+    ${props => !props.disabled && css`
+        &:hover {
+            background: ${props => (
+                (props.variant ? 
+                    props.variant > 30 ?
+                        colors[`secondary_${props.variant - 30}`]
+                    :
+                        colors[`secondary_${props.variant + 30}`]
+                :
+                    colors.secondary_70
+                )
+            )};
+        }
     `}
 `
 
