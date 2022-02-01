@@ -12,7 +12,7 @@ const Nav = styled.div`
 `
 
 const NavContainer = styled.div`
-    max-width: ${constants.sizes.laptopL};
+    max-width: ${constants.sizes.laptop};
     margin: 0 auto;
     height: 100%;
     display: flex;

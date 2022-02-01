@@ -27,6 +27,8 @@ const colors = {
     primary_50: 'rgba(11,36,251,0.5)',
     primary_40: 'rgba(11,36,251,0.4)',
     primary_30: 'rgba(11,36,251,0.3)',
+    primary_20: 'rgba(11,36,251,0.2)',
+    primary_10: 'rgba(11,36,251,0.1)',
 
     secondary: 'rgba(115,86,191,1)',
     secondary_90: 'rgba(115,86,191,0.9)',
@@ -36,6 +38,8 @@ const colors = {
     secondary_50: 'rgba(115,86,191,0.5)',
     secondary_40: 'rgba(115,86,191,0.4)',
     secondary_30: 'rgba(115,86,191,0.3)',
+    secondary_20: 'rgba(115,86,191,0.2)',
+    secondary_10: 'rgba(115,86,191,0.1)',
 
     green: 'rgba(5,148,79, 1)',
     orange: 'rgba(255,192,67, 1)',
