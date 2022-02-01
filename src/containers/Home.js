@@ -1,6 +1,6 @@
 import React from 'react'
 import { HomeListItem } from 'components'
-import { containers, texts } from 'styles'
+import { buttons, containers, texts } from 'styles'
 
 const mockData = [
     {
@@ -17,12 +17,18 @@ const mockData = [
 
 export default function Home() {
     return (
-        <containers.main styles={{ marginTop: '45px' }}>
-            <texts.base
-                size={texts.sizes.title_regular}
-                weight={texts.weights.bold}
-                styles={{ marginBottom: '22px' }}
-            >My setups</texts.base>
+        <containers.main style={{ marginTop: '45px' }}>
+            <containers.row_wide noPadding style={{ marginBottom: '50px' }}>
+                <containers.col_left>
+                    <texts.base
+                        size={texts.sizes.title_regular}
+                        weight={texts.weights.bold}
+                        style={{ marginBottom: '22px' }}
+                    >My setups</texts.base>
+                    <texts.base>Test hello</texts.base>
+                </containers.col_left>
+                <buttons.primary>Create a new configuration</buttons.primary>
+            </containers.row_wide>
             {mockData.map(item => <HomeListItem key={`li_${item.id}`} {...item} />)}
         </containers.main>
     )
