@@ -1,6 +1,7 @@
 import React from 'react'
-import { HomeListItem, Form } from 'components'
-import { buttons, containers, texts } from 'styles'
+import { HomeListItem, IconInput } from 'components'
+import { buttons, containers, texts, inputs } from 'styles'
+import logo from 'assets/logo.svg'
 
 const mockData = [
     {
@@ -26,10 +27,24 @@ export default function Home() {
                         weight={texts.weights.bold}
                         style={{ marginBottom: '20px' }}
                     >My setups</texts.base>
-                    <texts.base>Test hello</texts.base>
+
+                    <IconInput icon={logo}>
+                        <inputs.base
+                            icon={true}
+                            type={'text'}
+                            name={'search'}
+                            placeholder={'Search'}
+                            style={{
+                                width: '100%',
+                                maxWidth: '375px',
+                            }}
+                            />
+                    </IconInput>
                 </containers.col_left>
+
                 <buttons.primary>Create a new configuration</buttons.primary>
             </containers.row_wide>
+
             {mockData.map(item => <HomeListItem key={`li_${item.id}`} {...item} />)}
         </containers.main>
     )

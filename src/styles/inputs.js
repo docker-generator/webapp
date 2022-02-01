@@ -12,6 +12,6 @@ export const base = styled.input`
     ${props => !props.noMargin && css`margin-bottom: 1rem;`}
 
     ${props => props.icon && css`
-        padding-left: 2.4rem;
+        padding-left: 2.8rem;
     `}
 `
