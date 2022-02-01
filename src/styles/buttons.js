@@ -67,22 +67,12 @@ const secondaryBase = css`
     `}
 `
 
-export const primary = styled.button`
-    ${base}
-    ${primaryBase}   
-`
-
-export const secondary = styled.button`
-    ${base}
-    ${secondaryBase}
-`
-
-export const primaryLink = styled(Link)`
+export const primary = styled.div`
     ${base}
     ${primaryBase}
 `
 
-export const secondaryLink = styled(Link)`
+export const secondary = styled.div`
     ${base}
     ${secondaryBase}
 `

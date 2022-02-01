@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeListItem } from 'components'
+import { HomeListItem, Form } from 'components'
 import { buttons, containers, texts } from 'styles'
 
 const mockData = [
@@ -21,9 +21,10 @@ export default function Home() {
             <containers.row_wide noPadding style={{ marginBottom: '50px' }}>
                 <containers.col_left>
                     <texts.base
+                        as={'h1'}
                         size={texts.sizes.title_regular}
                         weight={texts.weights.bold}
-                        style={{ marginBottom: '22px' }}
+                        style={{ marginBottom: '20px' }}
                     >My setups</texts.base>
                     <texts.base>Test hello</texts.base>
                 </containers.col_left>

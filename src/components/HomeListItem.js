@@ -48,9 +48,9 @@ export default function HomeListItem(props) {
             </ItemInfos>
             <ItemButtons>
                 <buttons.primary>Download</buttons.primary>
-                <buttons.secondaryLink to={`/edit/${id}`}>
+                <buttons.secondary as={Link} to={`/edit/${id}`}>
                     Edit
-                </buttons.secondaryLink>
+                </buttons.secondary>
             </ItemButtons>
         </ItemContainer>
     )
