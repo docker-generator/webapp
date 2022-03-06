@@ -8,6 +8,9 @@ const base = css`
     color: ${colors.white};
     cursor: pointer;
     transition: background 0.2s ease-in-out;
+    appearance: none;
+    outline: none;
+    border: none;
     
     & > a {
         color: ${colors.white};
@@ -64,9 +67,34 @@ const secondaryBase = css`
     `}
 `
 
+const successBase = css`
+    background: ${props => props.variant ? colors[`green`] : colors.green};
+
+    ${props => props.disabled && css`
+        cursor: not-allowed;
+        background: ${colors.secondary_30};
+        pointer-events: none;
+    `}
+
+    ${props => !props.disabled && css`
+        &:hover {
+            background: ${props => (
+  (props.variant ?
+      props.variant > 30 ?
+        colors[`secondary_${props.variant - 30}`]
+        :
+        colors[`secondary_${props.variant + 30}`]
+      :
+      colors.secondary_70
+  )
+)};
+        }
+    `}
+`
+
 export const primary = styled.div`
     ${base}
-    ${primaryBase}   
+    ${primaryBase}
 `
 
 export const secondary = styled.div`
@@ -74,12 +102,7 @@ export const secondary = styled.div`
     ${secondaryBase}
 `
 
-export const primaryLink = styled(Link)`
+export const success = styled.div`
     ${base}
-    ${primaryBase}
-`
-
-export const secondaryLink = styled(Link)`
-    ${base}
-    ${secondaryBase}
+    ${successBase}
 `

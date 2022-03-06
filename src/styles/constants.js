@@ -18,6 +18,7 @@ const shadows =  {
 const colors = {
     white: '#fff',
     black: '#000',
+    grey: '#F4F6F9',
 
     primary: 'rgba(11,36,251,1)',
     primary_90: 'rgba(11,36,251,0.9)',

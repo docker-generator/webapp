@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Home, NoMatch } from 'containers'
+import { Home, NoMatch, Setup } from 'containers'
 import { Navbar } from 'components'
 
 export default class AppRoutes extends Component {
@@ -10,6 +10,7 @@ export default class AppRoutes extends Component {
                 <Navbar />
                 <Routes>
                     <Route exact path="/" element={<Home />} />
+                    <Route path='/edit/' element={<Setup />} />
                     <Route element={<NoMatch />} />
                 </Routes>
             </>
