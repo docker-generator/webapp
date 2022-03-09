@@ -39,7 +39,6 @@ const ItemButtons = styled.div`
 
 export default function HomeListItem(props) {
 	const { id, title, description, last_edited } = props;
-
 	const date = new Date(last_edited).toUTCString()
 
 	return (
