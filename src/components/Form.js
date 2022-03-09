@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { buttons, containers, texts, inputs } from 'styles'
 
 export default function Form(props) {
@@ -10,10 +9,7 @@ export default function Form(props) {
         const { name, value } = e.target
         
         setFormData(formData.map(item => {
-            if (item.name === name) {
-                item.value = value
-            }
-
+            if (item.name === name) item.value = value
             return item
         }))
     }
@@ -48,7 +44,7 @@ export default function Form(props) {
                 </containers.col_left>
             ))}
 
-            <SubmitButton as={'button'} type="submit">Submit</SubmitButton>
+            <SubmitButton as={'button'} type='submit'>Submit</SubmitButton>
         </containers.col_left>
     )
 }

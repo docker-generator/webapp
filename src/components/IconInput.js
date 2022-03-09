@@ -9,7 +9,7 @@ export default function IconInput(props) {
                 {React.cloneElement(children, { icon: true })}
                 <img
                     src={icon}
-                    alt=""
+                    alt=''
                     style={{
                         position: 'absolute',
                         top: '0.6rem',

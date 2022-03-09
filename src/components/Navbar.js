@@ -1,4 +1,4 @@
-import react, { useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { constants, texts } from 'styles'
 import { MainContext } from 'stores'
@@ -11,14 +11,16 @@ const Nav = styled.div`
 `
 
 const NavContainer = styled.div`
-    max-width: ${constants.sizes.laptop};
+    width: 100%;
+    max-width: ${constants.sizes.laptopL};
+    padding: 0 1rem;
     margin: 0 auto;
+    box-sizing: border-box;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
 `
 
 const NavCol = styled.div`
@@ -35,7 +37,7 @@ const NavCol = styled.div`
 
 // TODO: Add user dropdown functions and styles
 function UserDropDown() {
-    const { state, actions } = useContext(MainContext)
+    // const { state, actions } = useContext(MainContext)
 
     return (
         <div>
@@ -46,19 +48,19 @@ function UserDropDown() {
 }
 
 export default function Navbar() {
-    const { state, actions } = useContext(MainContext)
+    const { state } = useContext(MainContext)
 
     return (
         <Nav>
             <NavContainer>
                 <NavCol>
-                    <Link to="/">
-                        <img src={logo} alt="logo" />
+                    <Link to='/'>
+                        <img src={logo} alt='logo' />
                     </Link>
                 </NavCol>
                 <NavCol>
                     <texts.base>
-                        <Link to="/">Dashboard</Link>
+                        <Link to='/'>Dashboard</Link>
                     </texts.base>
                     {state.loggedIn && <UserDropDown />}
                 </NavCol>

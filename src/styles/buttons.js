@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 import { colors } from './constants';
 
 const base = css`
@@ -97,31 +96,6 @@ const secondaryBase = css`
     `}
 `
 
-const primaryInvertedBase = css`
-    background: ${props => props.variant ? colors[`white`] : white};
-
-    ${props => props.disabled && css`
-        cursor: not-allowed;
-        background: ${colors.primary_30};
-        pointer-events: none;
-    `}
-
-    ${props => !props.disabled && css`
-        &:hover {
-            background: ${props => (
-                (props.variant ?
-                    props.variant > 30 ?
-                      colors[`primary_${props.variant - 30}`]
-                      :
-                      colors[`primary_${props.variant + 30}`]
-                    :
-                    colors.primary_70
-                )
-            )};
-        }
-    `}
-`
-
 const successBase = css`
     background: ${props => props.variant ? colors[`green`] : colors.green};
 
@@ -134,15 +108,15 @@ const successBase = css`
     ${props => !props.disabled && css`
         &:hover {
             background: ${props => (
-  (props.variant ?
-      props.variant > 30 ?
-        colors[`secondary_${props.variant - 30}`]
-        :
-        colors[`secondary_${props.variant + 30}`]
-      :
-      colors.secondary_70
-  )
-)};
+                (props.variant ?
+                    props.variant > 30 ?
+                        colors[`secondary_${props.variant - 30}`]
+                        :
+                        colors[`secondary_${props.variant + 30}`]
+                    :
+                    colors.secondary_70
+                )
+            )};
         }
     `}
 `
@@ -178,6 +152,6 @@ export const smallSuccess = styled.div`
 `
 
 export const white = styled.div`
-  ${base}
-  ${invertedBase}
+    ${base}
+    ${invertedBase}
 `
