@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 import AppRoutes from 'routes'
 import { GlobalStyles } from 'styles'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { MainProvider } from 'stores'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<HashRouter>
+		<BrowserRouter>
 			<MainProvider>
 				<AppRoutes />
 				<GlobalStyles />
 			</MainProvider>
-		</HashRouter>
+		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
