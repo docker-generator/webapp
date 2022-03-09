@@ -46,7 +46,6 @@ export default function HomeListItem(props) {
 		<ItemContainer>
 			<ItemInfos to={ `/edit/${ id }` }>
 				<texts.base>{ title }</texts.base>
-				<texts.base size={ texts.sizes.small }>{ description }</texts.base>
 				<texts.base size={ texts.sizes.small }>{ `Last edited: ${date}` }</texts.base>
 			</ItemInfos>
 			<ItemButtons>

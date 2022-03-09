@@ -6,7 +6,7 @@ const mockData = [
         last_edited: 1646837467642,
         created_at: 1646837467642,
         services: [],
-        volumes: [],
+        networks: [],
     },
     {
         id: '66f19269-3cbd-4b42-8af3-d6b45f6b954d',
@@ -15,7 +15,7 @@ const mockData = [
         last_edited: 1646837467642,
         created_at: 1646837467642,
         services: [],
-        volumes: [],
+        networks: [],
     },
     {
         id: 'bf82dda4-67b2-4563-bd6e-1e0a7cc8cdec',
@@ -24,7 +24,7 @@ const mockData = [
         last_edited: 1646837467642,
         created_at: 1646837467642,
         services: [],
-        volumes: [],
+        networks: [],
     },
     {
         id: '28831229-6edd-4058-b989-9087c6897698',
@@ -33,7 +33,7 @@ const mockData = [
         last_edited: 1646837467642,
         created_at: 1646837467642,
         services: [],
-        volumes: [],
+        networks: [],
     },
     {
         id: '7f2964c9-8b6c-48c5-93dc-de546118578d',
@@ -42,7 +42,7 @@ const mockData = [
         last_edited: 1646837467642,
         created_at: 1646837467642,
         services: [],
-        volumes: [],
+        networks: [],
     },
 ]
 
