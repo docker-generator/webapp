@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import mockData from 'helpers/mockData'
 
 const MainContext = React.createContext('Main')
 const MainConsummer = MainContext.Consumer
@@ -10,6 +11,7 @@ class MainProvider extends Component {
         this.state = {
             loading: false,
             loggedIn: false,
+            data: mockData, // TODO: change with API data
         }
 
         this.actions = {}
