@@ -1,4 +1,5 @@
 export { default as EditorComposer } from './EditorComposer'
+export { default as EditorComposerHeader } from './EditorComposerHeader'
 export { default as EditorComposerItem } from './EditorComposerItem'
 export { default as EditorPreview } from './EditorPreview'
 export { default as Form } from './Form'

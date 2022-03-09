@@ -17,6 +17,8 @@ class MainProvider extends Component {
 
         this.actions = {
             createNewConfig: this.createNewConfig.bind(this),
+            updateConfig: this.updateConfig.bind(this),
+            deleteConfig: this.deleteConfig.bind(this),
         }
     }
 
@@ -42,6 +44,7 @@ class MainProvider extends Component {
     }
 
     updateConfig(config) {
+        console.log('updateConfig', config)
         const newData = this.state.data.map(item => {
             if (item.id === config.id) {
                 return config
