@@ -11,14 +11,16 @@ const Nav = styled.div`
 `
 
 const NavContainer = styled.div`
+    width: 100%;
     max-width: ${constants.sizes.laptopL};
+    padding: 0 1rem;
     margin: 0 auto;
+    box-sizing: border-box;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
 `
 
 const NavCol = styled.div`
