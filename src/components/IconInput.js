@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function IconInput(props) {
     const { icon, children } = props
-    console.log(icon);
+
     if (icon) {
         return (
             <div style={{ position: 'relative' }}>
