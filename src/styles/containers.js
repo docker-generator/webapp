@@ -3,7 +3,7 @@ import { sizes } from './constants'
 
 const base = css`
     width: 100%;
-    max-width: ${sizes.laptop};
+    max-width: ${sizes.laptopL};
     margin: 0 auto;
     ${props => !props.noPadding && css`
         padding: 0 1rem;

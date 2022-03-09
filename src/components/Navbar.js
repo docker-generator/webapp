@@ -7,7 +7,7 @@ import logo from 'assets/logo.svg'
 
 const Nav = styled.div`
     width: 100%;
-    height: 70px;
+    height: 80px;
 `
 
 const NavContainer = styled.div`
