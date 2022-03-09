@@ -37,10 +37,24 @@ export default function Home() {
                         />
                     </IconInput>
                 </containers.col_left>
-                <buttons.success onClick={createNewConfig}>Create new configuration</buttons.success>
+                <buttons.success onClick={createNewConfig}>Create a new configuration</buttons.success>
             </containers.row_wide>
 
-            {state.data.map(item => <HomeListItem key={`li_${item.id}`} {...item} />)}
+            {state.data.length ? (
+                state.data.map(item => <HomeListItem key={`li_${item.id}`} {...item} />)
+            ) : (
+                <containers.col_center>
+                    <texts.base as={'p'} size={texts.sizes.title_regular}>
+                        You don't have any configurations yet.
+                    </texts.base>
+                    <buttons.success
+                        style={{ marginTop: '20px' }}
+                        onClick={createNewConfig}
+                    >
+                        Create a new configuration
+                    </buttons.success>
+                </containers.col_center>
+            )}
         </containers.main>
     )
 }
