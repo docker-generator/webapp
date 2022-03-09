@@ -60,7 +60,6 @@ export default function Home() {
                         />
                     </IconInput>
                 </containers.col_left>
-
                 <buttons.success>Create new configuration</buttons.success>
             </containers.row_wide>
 
