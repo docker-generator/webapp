@@ -17,6 +17,21 @@ const base = css`
     }
 `
 
+const smallBase = css`
+    padding: .6rem 1rem;
+    border-radius: 0.5rem;
+    color: ${colors.white};
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    appearance: none;
+    outline: none;
+    border: none;
+    
+    & > a {
+        color: ${colors.white};
+    }
+`
+
 const invertedBase = css`
     padding: .9rem 1.7rem;
     border-radius: 0.5rem;
@@ -83,7 +98,7 @@ const secondaryBase = css`
 `
 
 const primaryInvertedBase = css`
-    background: ${props => props.variant ? colors[`primary_${props.variant}`] : colors.primary};
+    background: ${props => props.variant ? colors[`white`] : white};
 
     ${props => props.disabled && css`
         cursor: not-allowed;
@@ -137,12 +152,32 @@ export const primary = styled.div`
     ${primaryBase}
 `
 
+export const smallPrimary = styled.div`
+    ${smallBase}
+    ${primaryBase}
+`
+
 export const secondary = styled.div`
     ${base}
+    ${secondaryBase}
+`
+
+export const smallSecondary = styled.div`
+    ${smallBase}
     ${secondaryBase}
 `
 
 export const success = styled.div`
     ${base}
     ${successBase}
+`
+
+export const smallSuccess = styled.div`
+    ${smallBase}
+    ${successBase}
+`
+
+export const white = styled.div`
+  ${base}
+  ${invertedBase}
 `
