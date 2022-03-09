@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from './constants';
 
 const base = css`
-    padding: 1rem 1.7rem;
+    padding: .9rem 1.7rem;
     border-radius: 0.5rem;
     color: ${colors.white};
     cursor: pointer;
@@ -14,6 +14,21 @@ const base = css`
     
     & > a {
         color: ${colors.white};
+    }
+`
+
+const invertedBase = css`
+    padding: .9rem 1.7rem;
+    border-radius: 0.5rem;
+    color: ${colors.black};
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    appearance: none;
+    outline: none;
+    border: none;
+    
+    & > a {
+        color: ${colors.black};
     }
 `
 
@@ -61,6 +76,31 @@ const secondaryBase = css`
                         colors[`secondary_${props.variant + 30}`]
                 :
                     colors.secondary_70
+                )
+            )};
+        }
+    `}
+`
+
+const primaryInvertedBase = css`
+    background: ${props => props.variant ? colors[`primary_${props.variant}`] : colors.primary};
+
+    ${props => props.disabled && css`
+        cursor: not-allowed;
+        background: ${colors.primary_30};
+        pointer-events: none;
+    `}
+
+    ${props => !props.disabled && css`
+        &:hover {
+            background: ${props => (
+                (props.variant ?
+                    props.variant > 30 ?
+                      colors[`primary_${props.variant - 30}`]
+                      :
+                      colors[`primary_${props.variant + 30}`]
+                    :
+                    colors.primary_70
                 )
             )};
         }
