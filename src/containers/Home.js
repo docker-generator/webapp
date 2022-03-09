@@ -2,10 +2,17 @@ import React, { useContext } from 'react'
 import { MainContext } from 'stores'
 import { HomeListItem, IconInput } from 'components'
 import { buttons, containers, texts, inputs } from 'styles'
+import { useNavigate } from 'react-router-dom'
 import ic_search from 'assets/images/ic-search.svg'
 
 export default function Home() {
-    const { state } = useContext(MainContext)
+    const { state, actions } = useContext(MainContext)
+    const navigate = useNavigate()
+
+    const createNewConfig = () => {
+        const id = actions.createNewConfig()
+        navigate(`/edit/${id}`)
+    }
 
     return (
         <containers.main style={{ marginTop: '45px' }}>
@@ -30,7 +37,7 @@ export default function Home() {
                         />
                     </IconInput>
                 </containers.col_left>
-                <buttons.success>Create new configuration</buttons.success>
+                <buttons.success onClick={createNewConfig}>Create new configuration</buttons.success>
             </containers.row_wide>
 
             {state.data.map(item => <HomeListItem key={`li_${item.id}`} {...item} />)}
