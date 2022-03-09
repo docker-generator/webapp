@@ -44,7 +44,7 @@ export default function Form(props) {
                 </containers.col_left>
             ))}
 
-            <SubmitButton as={'button'} type="submit">Submit</SubmitButton>
+            <SubmitButton as={'button'} type='submit'>Submit</SubmitButton>
         </containers.col_left>
     )
 }

@@ -54,13 +54,13 @@ export default function Navbar() {
         <Nav>
             <NavContainer>
                 <NavCol>
-                    <Link to="/">
-                        <img src={logo} alt="logo" />
+                    <Link to='/'>
+                        <img src={logo} alt='logo' />
                     </Link>
                 </NavCol>
                 <NavCol>
                     <texts.base>
-                        <Link to="/">Dashboard</Link>
+                        <Link to='/'>Dashboard</Link>
                     </texts.base>
                     {state.loggedIn && <UserDropDown />}
                 </NavCol>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { MainContext } from 'stores'
 import { containers } from 'styles'
 import { EditorComposer, EditorPreview } from 'components'
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom'
 
 export default function Setup() {
 	const { id } = useParams()

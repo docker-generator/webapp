@@ -9,7 +9,7 @@ export default class AppRoutes extends Component {
             <>
                 <Navbar />
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
                     <Route path='/edit/:id' element={<Setup />} />
                     <Route element={<NoMatch />} />
                 </Routes>
