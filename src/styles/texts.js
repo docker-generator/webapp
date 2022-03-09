@@ -28,5 +28,4 @@ export const base = styled.p`
     }
 
     ${props => props.center && css`text-align: center;`}
-    ${props => props.styles && css`${props.styles}`}
 `

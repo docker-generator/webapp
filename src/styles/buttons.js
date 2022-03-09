@@ -8,6 +8,9 @@ const base = css`
     color: ${colors.white};
     cursor: pointer;
     transition: background 0.2s ease-in-out;
+    appearance: none;
+    outline: none;
+    border: none;
     
     & > a {
         color: ${colors.white};
@@ -66,20 +69,10 @@ const secondaryBase = css`
 
 export const primary = styled.div`
     ${base}
-    ${primaryBase}   
-`
-
-export const secondary = styled.div`
-    ${base}
-    ${secondaryBase}
-`
-
-export const primaryLink = styled(Link)`
-    ${base}
     ${primaryBase}
 `
 
-export const secondaryLink = styled(Link)`
+export const secondary = styled.div`
     ${base}
     ${secondaryBase}
 `
