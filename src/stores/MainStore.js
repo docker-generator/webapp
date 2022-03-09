@@ -41,6 +41,22 @@ class MainProvider extends Component {
         return newConfig.id
     }
 
+    updateConfig(config) {
+        const newData = this.state.data.map(item => {
+            if (item.id === config.id) {
+                return config
+            }
+            return item
+        })
+
+        this.setState({ data: newData })
+    }
+
+    deleteConfig(config) {
+        const newData = this.state.data.filter(item => item.id !== config.id)
+        this.setState({ data: newData })
+    }
+
     render() {
         return (
             <MainContext.Provider value={{state: this.state, actions: this.actions}}>
