@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { MainContext } from 'stores'
 import { buttons, containers, texts } from 'styles'
+import { getNewDataFromType, capitalizeFirstLetter } from 'helpers'
 
 export default function EditorComposerHeader(props) {
     const { type, currentData } = props
@@ -10,9 +11,7 @@ export default function EditorComposerHeader(props) {
             ...currentData,
             [type]: [
                 ...currentData[type],
-                {
-                    name: 'test'
-                }
+                getNewDataFromType(type),
             ]
         }
 
@@ -23,7 +22,7 @@ export default function EditorComposerHeader(props) {
         <containers.row_left noPadding style={{ marginBottom: '23px' }}>
             <containers.col_left>
                 <texts.base as={'h3'} size={texts.sizes.title_small} weight={texts.weights.medium}>
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                    {capitalizeFirstLetter(type)}
                 </texts.base>
             </containers.col_left>
             <containers.col_left style={{ marginLeft: '40px' }}>
