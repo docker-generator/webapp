@@ -18,7 +18,7 @@ class MainProvider extends Component {
             createNewConfig: this.createNewConfig.bind(this),
             updateConfig: this.updateConfig.bind(this),
             deleteConfig: this.deleteConfig.bind(this),
-            editConfigData: this.editConfigData.bind(this),
+            updateConfigData: this.updateConfigData.bind(this),
             deleteConfigData: this.deleteConfigData.bind(this),
         }
     }
@@ -47,7 +47,9 @@ class MainProvider extends Component {
         this.setState({ data: newData })
     }
 
-    editConfigData(configId, type, data) {
+    updateConfigData(configId, type, data) {
+        console.log('updateConfigData', configId, type, data)
+        console.log('data', this.state.data)
         const newData = this.state.data.map(item => {
             if (item.id === configId) {
                 const newConfigData = item[type].map(configData => {
@@ -58,6 +60,8 @@ class MainProvider extends Component {
             }
             return item
         })
+
+        console.log('new data', newData)
 
         this.setState({ data: newData })
     }

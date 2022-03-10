@@ -33,7 +33,7 @@ export default function EditorComposer() {
         setCurrentData(state.data.find(data => data.id === id))
     }, [state.data, id])
 
-    const saveTitle = (title) => {
+    const saveTitle = () => {
         const data = { ...currentData, title: editTitle.value }
         actions.updateConfig(data)
     }
