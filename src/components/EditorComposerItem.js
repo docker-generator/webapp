@@ -46,7 +46,7 @@ export default function EditorComposerItem(props) {
     }, [data, configId, type])
 
     return (
-        <containers.row_wide style={{ padding: 0}}>
+        <containers.row_wide style={{ padding: 0 }}>
             <styles.editor_item_card>
                 <containers.row_wide style={{ marginTop: '20px', marginBottom: '20px' }}>
                     <containers.col_left>
@@ -59,12 +59,20 @@ export default function EditorComposerItem(props) {
                                 }
                             })
                         ) : (
-                            <EditorComposerForm type={type} configId={configId} formData={formData} />
+                            <EditorComposerForm
+                                type={type}
+                                configId={configId}
+                                formData={formData}
+                                setFormData={setFormData}
+                            />
                         )}
                     </containers.col_left>
 
                     <containers.col_right style={{ minWidth: '140px', flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <buttons.smallSecondary onClick={() => setIsEditing(!isEditing)}>
+                        <buttons.smallSecondary onClick={() => {
+                            if (isEditing) actions.updateConfigData(configId, type, { ...formData, id: data.id })
+                            setIsEditing(!isEditing)
+                        }}>
                             {isEditing ? 'Save' : 'Edit'}
                         </buttons.smallSecondary>
                         {!isEditing && (

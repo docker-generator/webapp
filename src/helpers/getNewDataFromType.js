@@ -1,5 +1,4 @@
 import { v4 as uuid } from 'uuid'
-import getNewService from 'helpers'
 
 export default function getNewDataFromType(type) {
     if (type === 'services') {
@@ -15,7 +14,7 @@ export default function getNewDataFromType(type) {
     } else {
         return {
             id: uuid(),
-            content: '',
+            content: [],
         }
     }
 }
