@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { mockData, getNewConfig } from 'helpers'
+import { mockData, getNewConfig, Requests } from 'helpers'
 
 const MainContext = React.createContext('Main')
 const MainConsummer = MainContext.Consumer
@@ -20,11 +20,24 @@ class MainProvider extends Component {
             deleteConfig: this.deleteConfig.bind(this),
             updateConfigData: this.updateConfigData.bind(this),
             deleteConfigData: this.deleteConfigData.bind(this),
+            login: this.login.bind(this),
         }
     }
 
     componentDidMount() {
         // TODO: Implement API fetching
+    }
+  
+    async login(data) {
+      console.log(data)
+      const user = {
+        'email': data[0].value,
+        'password': data[1].value
+      }
+
+      this.setState({ data: [...this.state.data] })
+      const res = await this.requests.post(`/authentication/login`, user)
+      localStorage.setItem('jwt', res);
     }
 
     createNewConfig() {
