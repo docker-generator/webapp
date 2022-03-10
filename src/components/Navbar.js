@@ -60,7 +60,8 @@ export default function Navbar() {
                 </NavCol>
                 <NavCol>
                     <texts.base>
-                        <Link to='/'>Dashboard</Link>
+                        {state.loggedIn && <Link to='/'>Dashboard</Link>}
+                        {!state.loggedIn && <Link to='/login'>Login</Link>}
                     </texts.base>
                     {state.loggedIn && <UserDropDown />}
                 </NavCol>

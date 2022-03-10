@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { MainContext } from 'stores'
 import { EditorPreviewContent } from 'components'
+import { downloadYaml, formatToYaml } from 'helpers'
 import { buttons, containers } from 'styles'
 import { colors } from 'styles/constants'
 import styled from 'styled-components'
@@ -28,6 +29,12 @@ export default function EditorPreview() {
 		setData(state.data.find(config => config.id === id))
 	}, [state, id])
 
+	const download = () => {
+		const yml = formatToYaml(data)
+		console.log(data)
+		downloadYaml(`${data.title.replace(' ', '_')}.yml`, yml)
+	}
+
     return (
         <containers.col_right style={ { width: '50%', height: '90vh', backgroundColor: colors.secondary_20, borderRadius: '8px' } }>
 			<containers.row_center noPadding style={ { marginBottom: '15px' } }>
@@ -37,10 +44,10 @@ export default function EditorPreview() {
 			</containers.row_center>
 			<containers.row_left noPadding style={ { backgroundColor: colors.primary_70, height: '100%', borderRadius: '8px' } }>
 				<containers.col_left style={ { marginLeft: '40px' } }>
-					<buttons.white style={{background: 'white'}}>Download</buttons.white>
+					<buttons.white style={{background: 'white'}} onClick={download}>Download</buttons.white>
 				</containers.col_left>
 				<containers.col_left style={ { marginLeft: '40px' } }>
-					<buttons.white style={{background: 'white'}}>Save</buttons.white>
+					{state.loggedIn && <buttons.white style={{background: 'white'}}>Save</buttons.white>}
 				</containers.col_left>
 			</containers.row_left>
         </containers.col_right>

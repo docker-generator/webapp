@@ -24,10 +24,6 @@ export default class Requests {
       });
     }
 
-    console.log('env', process.env)
-    console.log('axios', { ...this.axios })
-    console.log('options', options)
-
     this.get = this.get.bind(this);
     this.post = this.post.bind(this);
     this.delete = this.delete.bind(this);

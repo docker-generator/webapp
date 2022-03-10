@@ -11,12 +11,33 @@ function removeEmpty(obj) {
 }
 
 export default function formatToYaml(_data) {
+    const masterKeys = ['services', 'networks']
     const template = {
         version: '3.0',
     }
 
     const d = JSON.stringify(_data)
     const data = JSON.parse(d)
+
+    for (let m = 0; m < masterKeys.length; m++) {
+        const mkey = masterKeys[m];
+        
+        for (let i = 0; i < data[mkey].length; i++) {
+            const service = data[mkey][i];
+    
+            for (const [key, value] of Object.entries(service)) {
+                if (typeof value === 'string' && value.length > 0) {
+                    data[mkey][i][key] = `'${value}'`
+                }
+    
+                if (typeof value === 'object' && value.length > 0) {
+                    for (let j = 0; j < value.length; j++) {
+                        data[mkey][i][key][j] = `'${value[j]}'`
+                    }
+                }
+            }
+        }
+    }
 
     if (data.services.length > 0) {
         const services = {}

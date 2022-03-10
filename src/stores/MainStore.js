@@ -8,6 +8,8 @@ class MainProvider extends Component {
     constructor(props) {
         super(props)
 
+        this.requests = new Requests()
+
         this.state = {
             loading: false,
             loggedIn: false,
@@ -29,15 +31,17 @@ class MainProvider extends Component {
     }
   
     async login(data) {
-      console.log(data)
-      const user = {
-        'email': data[0].value,
-        'password': data[1].value
-      }
+        const user = { 'email': data[0].value, 'password': data[1].value }
 
-      this.setState({ data: [...this.state.data] })
-      const res = await this.requests.post(`/authentication/login`, user)
-      localStorage.setItem('jwt', res);
+        this.requests.post(`/authentication/login`, user).then(res => {
+            this.requests = new Requests({token: res.data.token}) // TODO: check with API response
+            localStorage.setItem('jwt', res)
+            this.setState({ loggedIn: true })
+        }).catch(err => {
+            this.setState({ loggedIn: false })
+            localStorage.removeItem('jwt')
+            console.error(err)
+        })
     }
 
     createNewConfig() {
