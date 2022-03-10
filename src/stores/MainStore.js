@@ -31,7 +31,10 @@ class MainProvider extends Component {
 
         if (this.loggedIn) {
             this.requests.get('/docker-compose/get-all/0').then(res => {
-                this.setState({ data: res.data })
+                const parsedData = res.data.map(item => {
+                    return JSON.parse(item.dockerData)
+                })
+                this.setState({ data: parsedData })
             }).catch(err => {
                 this.setState({ data: [], loggedIn: false })
                 console.error(err)
@@ -55,8 +58,8 @@ class MainProvider extends Component {
         const user = { 'email': data[0].value, 'password': data[1].value }
 
         this.requests.post('/authentication/login', user).then(res => {
-            this.requests = new Requests({token: res.data.token}) // TODO: check with API response
-            localStorage.setItem('jwt', res)
+            this.requests = new Requests({token: res.data}) // TODO: check with API response
+            localStorage.setItem('jwt', res.data)
             this.setState({ loggedIn: true })
         }).catch(err => {
             this.setState({ loggedIn: false })
@@ -68,6 +71,13 @@ class MainProvider extends Component {
     createNewConfig() {
         const newConfig = getNewConfig()
         this.setState({ data: [...this.state.data, newConfig] })
+
+        this.createOnServer({
+            id: newConfig.id,
+            name: newConfig.name,
+            dockerData: JSON.stringify(newConfig),
+        })
+
         return newConfig.id
     }
 
@@ -77,12 +87,20 @@ class MainProvider extends Component {
             return item
         })
 
+        const item = newData.find(item => item.id === config.id)
+
         this.setState({ data: newData })
+        this.updateOnServer({
+            id: item.id,
+            name: item.name,
+            dockerData: JSON.stringify(item),
+        })
     }
 
     deleteConfig(config) {
         const newData = this.state.data.filter(item => item.id !== config.id)
         this.setState({ data: newData })
+        this.deleteOnServer(config.id)
     }
 
     updateConfigData(configId, type, data) {
@@ -97,7 +115,14 @@ class MainProvider extends Component {
             return item
         })
 
+        const item = newData.find(item => item.id === configId)
+
         this.setState({ data: newData })
+        this.updateOnServer({
+            id: item.id,
+            name: item.name,
+            dockerData: JSON.stringify(item),
+        })
     }
 
     deleteConfigData(configId, type, configDataId) {
@@ -109,7 +134,14 @@ class MainProvider extends Component {
             return item
         })
 
+        const item = newData.find(item => item.id === configId)
+
         this.setState({ data: newData })
+        this.updateOnServer({
+            id: item.id,
+            name: item.name,
+            dockerData: JSON.stringify(item),
+        })
     }
 
     updateOnServer(data) {
