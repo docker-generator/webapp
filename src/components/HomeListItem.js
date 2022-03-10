@@ -38,12 +38,12 @@ const ItemButtons = styled.div`
 `
 
 export default function HomeListItem(props) {
-	const { id, title } = props;
+	const { id, name } = props;
 
 	return (
 		<ItemContainer>
 			<ItemInfos to={ `/edit/${ id }` }>
-				<texts.base>{ title }</texts.base>
+				<texts.base>{ name }</texts.base>
 			</ItemInfos>
 			<ItemButtons>
 				<buttons.primary>Download</buttons.primary>
