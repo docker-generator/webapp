@@ -1,2 +1,6 @@
-export { default as mockData } from './mockData'
 export { default as Requests } from './Requests'
+export { default as capitalizeFirstLetter } from './capitalizeFirstLetter'
+export { default as getNewConfig } from './getNewConfig'
+export { default as getNewDataFromType } from './getNewDataFromType'
+export { default as formatToYaml } from './formatToYaml'
+export { default as mockData } from './mockData'
