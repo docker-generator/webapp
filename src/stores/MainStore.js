@@ -48,8 +48,6 @@ class MainProvider extends Component {
     }
 
     updateConfigData(configId, type, data) {
-        console.log('updateConfigData', configId, type, data)
-        console.log('data', this.state.data)
         const newData = this.state.data.map(item => {
             if (item.id === configId) {
                 const newConfigData = item[type].map(configData => {
@@ -60,8 +58,6 @@ class MainProvider extends Component {
             }
             return item
         })
-
-        console.log('new data', newData)
 
         this.setState({ data: newData })
     }
