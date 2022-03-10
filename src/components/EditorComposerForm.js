@@ -75,6 +75,25 @@ export default function EditorComposerForm(props) {
         setFormData({ ...formData, [name]: value })
     }
 
+    const handleCheckbox = (e, data, index) => {
+        const { checked } = e.target
+
+        setForm(form.map((item, i) => {
+            if (item.key === 'networks') {
+                console.log(item, i)
+                if (checked) {
+                    item.value.push(data)
+                    return { ...item }
+                } else {
+                    item.value.splice(index, 1)
+                    return { ...item }
+                }
+            }
+            return item
+        }))
+        setFormData({ ...formData })
+    }
+
     const editTextList = (key, index, data) => {
         setForm(form.map(item => {
             if (item.name === key) {
@@ -173,12 +192,16 @@ export default function EditorComposerForm(props) {
                         {capitalizeFirstLetter(item.label)}
                     </texts.base>
                     {currentConfig[item.key].map((network, j) => (
-                        <label key={j}>
-                            <input
-                                type="checkbox"
-                            />
-                            {network.content}
-                        </label>
+                        network?.content?.length > 0 && (
+                            <label key={j}>
+                                <input
+                                    type="checkbox"
+                                    checked={item.value.includes(network.content)}
+                                    onChange={(e) => handleCheckbox(e, network.content, j)}
+                                />
+                                {network.content}
+                            </label>
+                        )
                     ))}
                 </React.Fragment>
             )
