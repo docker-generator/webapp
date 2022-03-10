@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
-import { MainContext } from 'stores';
-import { containers, buttons } from 'styles';
-import { Form } from 'components';
-import { col_center } from '../styles/containers';
+import React, { useContext } from 'react'
+import { MainContext } from 'stores'
+import { containers } from 'styles'
+import { Form } from 'components'
 
 
 export default function Login() {
