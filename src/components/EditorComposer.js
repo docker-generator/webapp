@@ -69,7 +69,7 @@ export default function EditorComposer() {
                 <React.Fragment key={i}>
                     <EditorComposerHeader type={type} currentData={currentData} />
                     {currentData[type].map((data, index) => {
-                        return <EditorComposerItem key={index} data={data} type={type} />
+                        return <EditorComposerItem key={index} data={data} configId={currentData.id} type={type} />
                     })}
                 </React.Fragment>
             ))}

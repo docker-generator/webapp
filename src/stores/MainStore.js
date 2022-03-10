@@ -18,6 +18,8 @@ class MainProvider extends Component {
             createNewConfig: this.createNewConfig.bind(this),
             updateConfig: this.updateConfig.bind(this),
             deleteConfig: this.deleteConfig.bind(this),
+            editConfigData: this.editConfigData.bind(this),
+            deleteConfigData: this.deleteConfigData.bind(this),
         }
     }
 
@@ -42,6 +44,33 @@ class MainProvider extends Component {
 
     deleteConfig(config) {
         const newData = this.state.data.filter(item => item.id !== config.id)
+        this.setState({ data: newData })
+    }
+
+    editConfigData(configId, type, data) {
+        const newData = this.state.data.map(item => {
+            if (item.id === configId) {
+                const newConfigData = item[type].map(configData => {
+                    if (configData.id === data.id) return data
+                    return configData
+                })
+                return { ...item, [type]: newConfigData }
+            }
+            return item
+        })
+
+        this.setState({ data: newData })
+    }
+
+    deleteConfigData(configId, type, configDataId) {
+        const newData = this.state.data.map(item => {
+            if (item.id === configId) {
+                const newConfigData = item[type].filter(configData => configData.id !== configDataId)
+                return { ...item, [type]: newConfigData }
+            }
+            return item
+        })
+
         this.setState({ data: newData })
     }
 
