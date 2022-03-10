@@ -6,7 +6,7 @@ export default function getNewDataFromType(type) {
             id: uuid(),
             name: '',
             image: '',
-            ports: ['3000:3000'],
+            ports: [],
             volumes: [],
             links: [],
             networks: [],
