@@ -5,6 +5,7 @@ import { buttons, containers, texts, inputs } from 'styles'
 import { useNavigate } from 'react-router-dom'
 import ic_search from 'assets/images/ic-search.svg'
 
+
 export default function Home() {
     const { state, actions } = useContext(MainContext)
     const navigate = useNavigate()

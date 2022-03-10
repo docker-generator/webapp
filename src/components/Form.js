@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { buttons, containers, texts, inputs } from 'styles'
+import { col_center } from '../styles/containers';
 
 export default function Form(props) {
     const { onSubmit, buttonType } = props
-    const [formData, setFormData] = useState([...props.formData])
+    const [formData, setFormData] = useState( [...props.formData])
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        
+
         setFormData(formData.map(item => {
             if (item.name === name) item.value = value
             return item
@@ -22,7 +23,7 @@ export default function Form(props) {
     const SubmitButton = buttonType ? buttons[buttonType] : buttons.primary
 
     return (
-        <containers.col_left as={'form'} onSubmit={handleSubmit}>
+        <containers.col_center as={'form'} onSubmit={handleSubmit}>
             {formData.map(({ name, label, type, placeholder, ...rest }) => (
                 <containers.col_left key={name}>
                     {label && (
@@ -45,6 +46,6 @@ export default function Form(props) {
             ))}
 
             <SubmitButton as={'button'} type='submit'>Submit</SubmitButton>
-        </containers.col_left>
+        </containers.col_center>
     )
 }
