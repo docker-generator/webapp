@@ -20,19 +20,17 @@ export default function formatToYaml(_data) {
     const data = JSON.parse(d)
 
     for (let m = 0; m < masterKeys.length; m++) {
-        const mkey = masterKeys[m];
+        const mkey = masterKeys[m]
         
         for (let i = 0; i < data[mkey].length; i++) {
-            const service = data[mkey][i];
+            const service = data[mkey][i]
     
             for (const [key, value] of Object.entries(service)) {
-                if (typeof value === 'string' && value.length > 0) {
-                    data[mkey][i][key] = `'${value}'`
-                }
-    
                 if (typeof value === 'object' && value.length > 0) {
                     for (let j = 0; j < value.length; j++) {
-                        data[mkey][i][key][j] = `'${value[j]}'`
+                        if (key === 'ports') {
+                            data[mkey][i][key][j] = `"${value[j]}"`
+                        }
                     }
                 }
             }
@@ -62,5 +60,5 @@ export default function formatToYaml(_data) {
         if (networks.length > 0 && networks[0]?.length > 0) template.networks = networks
     }
 
-    return YAML.stringify(template)
+    return YAML.stringify(template).replaceAll(`'"`, '"').replaceAll(`"'`, `"`)
 }
