@@ -8,12 +8,12 @@ import { MainProvider } from 'stores'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<HashRouter>
+		<BrowserRouter>
 			<MainProvider>
 				<AppRoutes />
 				<GlobalStyles />
 			</MainProvider>
-		</HashRouter>
+		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
