@@ -13,7 +13,8 @@ class MainProvider extends Component {
         this.state = {
             loading: false,
             loggedIn: false,
-            data: mockData, // TODO: change with API data
+            // data: mockData, // In case API is broken, uncomment this line and comment the next one
+            data: [],
         }
 
         this.actions = {
