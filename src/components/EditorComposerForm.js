@@ -80,7 +80,6 @@ export default function EditorComposerForm(props) {
 
         setForm(form.map((item, i) => {
             if (item.key === 'networks') {
-                console.log(item, i)
                 if (checked) {
                     item.value.push(data)
                     return { ...item }
