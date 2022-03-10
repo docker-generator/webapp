@@ -11,6 +11,8 @@ export default class Requests {
         timeout: options.timeout,
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*'
         },
       });
     } else {
@@ -19,7 +21,9 @@ export default class Requests {
         timeout: options.timeout,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': options.token
+          'Authorization': options.token,
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*'
         },
       });
     }
@@ -44,5 +48,9 @@ export default class Requests {
 
   patch(url, data) {
     return this.axios.patch(url, data);
+  }
+
+  put(url, data) {
+    return this.axios.put(url, data);
   }
 }

@@ -27,13 +27,34 @@ class MainProvider extends Component {
     }
 
     componentDidMount() {
-        // TODO: Implement API fetching
+        this.checkLogin()
+
+        if (this.loggedIn) {
+            this.requests.get('/docker-compose/get-all/0').then(res => {
+                this.setState({ data: res.data })
+            }).catch(err => {
+                this.setState({ data: [], loggedIn: false })
+                console.error(err)
+            })
+        }
+    }
+
+    checkLogin() {
+        const jwt = localStorage.getItem('jwt')
+
+        if (jwt) {
+            this.requests = new Requests({token: jwt})
+            this.setState({ loggedIn: true })
+        } else {
+            this.requests = new Requests()
+            this.setState({ loggedIn: false })
+        }
     }
   
     async login(data) {
         const user = { 'email': data[0].value, 'password': data[1].value }
 
-        this.requests.post(`/authentication/login`, user).then(res => {
+        this.requests.post('/authentication/login', user).then(res => {
             this.requests = new Requests({token: res.data.token}) // TODO: check with API response
             localStorage.setItem('jwt', res)
             this.setState({ loggedIn: true })
@@ -89,6 +110,36 @@ class MainProvider extends Component {
         })
 
         this.setState({ data: newData })
+    }
+
+    updateOnServer(data) {
+        if (this.state.loggedIn) {
+            this.requests.put('/docker-compose', data).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.error(err)
+            })
+        }
+    }
+
+    createOnServer(data) {
+        if (this.state.loggedIn) {
+            this.requests.post('/docker-compose', data).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.error(err)
+            })
+        }
+    }
+
+    deleteOnServer(data) {
+        if (this.state.loggedIn) {
+            this.requests.delete(`/docker-compose/${data.id}`).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.error(err)
+            })
+        }
     }
 
     render() {

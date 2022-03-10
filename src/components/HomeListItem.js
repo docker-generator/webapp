@@ -1,7 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { constants, texts, buttons } from 'styles';
+import React, { useContext } from 'react'
+import { MainContext } from 'stores'
+import { downloadYaml, formatToYaml } from 'helpers'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { constants, texts, buttons } from 'styles'
 
 const ItemContainer = styled.div`
 	display: flex;
@@ -38,17 +40,22 @@ const ItemButtons = styled.div`
 `
 
 export default function HomeListItem(props) {
-	const { id, title, description, last_edited } = props;
-	const date = new Date(last_edited).toUTCString()
+	const { id, name } = props;
+	const { state } = useContext(MainContext)
+	const data = state.data.find(config => config.id === id)
+
+	const download = () => {
+		const yml = formatToYaml(data)
+		downloadYaml(`${data.name.replace(' ', '_')}.yml`, yml)
+	}
 
 	return (
 		<ItemContainer>
 			<ItemInfos to={ `/edit/${ id }` }>
-				<texts.base>{ title }</texts.base>
-				<texts.base size={ texts.sizes.small }>{ `Last edited: ${date}` }</texts.base>
+				<texts.base>{ name }</texts.base>
 			</ItemInfos>
 			<ItemButtons>
-				<buttons.primary>Download</buttons.primary>
+				<buttons.primary onClick={download}>Download</buttons.primary>
 				<buttons.secondary as={ Link } to={ `/edit/${ id }` }>Edit</buttons.secondary>
 			</ItemButtons>
 		</ItemContainer>
