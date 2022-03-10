@@ -11,8 +11,6 @@ export default class Requests {
         timeout: options.timeout,
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*'
         },
       });
     } else {
@@ -22,8 +20,6 @@ export default class Requests {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': options.token,
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*'
         },
       });
     }
