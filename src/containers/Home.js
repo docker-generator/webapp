@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { HomeListItem, HomeHeader } from 'components'
 import { buttons, containers, texts } from 'styles'
 
-
 export default function Home() {
     const { state, actions } = useContext(MainContext)
     const navigate = useNavigate()

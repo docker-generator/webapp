@@ -8,7 +8,6 @@ export default function Form(props) {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-
         setFormData(formData.map(item => {
             if (item.name === name) item.value = value
             return item
