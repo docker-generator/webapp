@@ -38,14 +38,12 @@ const ItemButtons = styled.div`
 `
 
 export default function HomeListItem(props) {
-	const { id, title, description, last_edited } = props;
-	const date = new Date(last_edited).toUTCString()
+	const { id, title } = props;
 
 	return (
 		<ItemContainer>
 			<ItemInfos to={ `/edit/${ id }` }>
 				<texts.base>{ title }</texts.base>
-				<texts.base size={ texts.sizes.small }>{ `Last edited: ${date}` }</texts.base>
 			</ItemInfos>
 			<ItemButtons>
 				<buttons.primary>Download</buttons.primary>

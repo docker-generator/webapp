@@ -32,7 +32,7 @@ export default function EditorPreview() {
 	const download = () => {
 		const yml = formatToYaml(data)
 		console.log(data)
-		downloadYaml(`${data.title.replace(' ', '_')}.yml`, yml)
+		downloadYaml(`${data.name.replace(' ', '_')}.yml`, yml)
 	}
 
     return (

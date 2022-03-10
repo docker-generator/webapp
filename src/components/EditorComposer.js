@@ -25,7 +25,7 @@ export default function EditorComposer() {
 
     const [currentData, setCurrentData] = useState(state.data.find(data => data.id === id))
     const [editTitle, setEditTitle] = useState({
-        value: currentData.title,
+        value: currentData.name,
         isEditing: false,
     })
 
@@ -34,7 +34,7 @@ export default function EditorComposer() {
     }, [state.data, id])
 
     const saveTitle = () => {
-        const data = { ...currentData, title: editTitle.value }
+        const data = { ...currentData, name: editTitle.value }
         actions.updateConfig(data)
     }
 
@@ -52,7 +52,7 @@ export default function EditorComposer() {
                     />
                 ) : (
                     <texts.base as={'h2'} size={texts.sizes.title_regular} weight={texts.weights.bold} style={{ marginBottom: '60px' }}>
-                        {currentData.title}
+                        {currentData.name}
                     </texts.base>
                 )}
                 <styles.edit_button

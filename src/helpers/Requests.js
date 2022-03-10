@@ -45,4 +45,8 @@ export default class Requests {
   patch(url, data) {
     return this.axios.patch(url, data);
   }
+
+  put(url, data) {
+    return this.axios.put(url, data);
+  }
 }
