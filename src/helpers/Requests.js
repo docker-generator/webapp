@@ -5,6 +5,7 @@ export default class Requests {
     baseURL: 'https://api.hetic.camillearsac.fr',
     timeout: 10000
   }) {
+    this.options = options
     if (!options.token) {
       this.axios = axios.create({
         baseURL: options.baseURL || process.env.REACT_APP_BACKEND_URL,
@@ -31,22 +32,22 @@ export default class Requests {
   }
 
   get(url) {
-    return this.axios.get(url);
+    return this.axios.get(`${this.options.baseURL}${url}`);
   }
 
   post(url, data) {
-    return this.axios.post(url, data);
+    return this.axios.post(`${this.options.baseURL}${url}`, data);
   }
 
   delete(url) {
-    return this.axios.delete(url);
+    return this.axios.delete(`${this.options.baseURL}${url}`);
   }
 
   patch(url, data) {
-    return this.axios.patch(url, data);
+    return this.axios.patch(`${this.options.baseURL}${url}`, data);
   }
 
   put(url, data) {
-    return this.axios.put(url, data);
+    return this.axios.put(`${this.options.baseURL}${url}`, data);
   }
 }
