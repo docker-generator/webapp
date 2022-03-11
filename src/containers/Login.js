@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { MainContext } from 'stores'
 import { containers } from 'styles'
 import { Form } from 'components'
@@ -7,7 +7,7 @@ import { Form } from 'components'
 
 export default function Login() {
   const { state, actions } = useContext(MainContext);
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     actions.login(data);
@@ -15,7 +15,7 @@ export default function Login() {
 
   useEffect(() => {
     if (state.loggedIn) {
-      history.push('/')
+      navigate('/')
     }
   }, [state.loggedIn])
 
