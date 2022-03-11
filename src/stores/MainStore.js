@@ -31,15 +31,7 @@ class MainProvider extends Component {
         this.checkLogin()
 
         if (this.loggedIn) {
-            this.requests.get('/docker-compose/get-all/0').then(res => {
-                const parsedData = res.data.map(item => {
-                    return JSON.parse(item.dockerData)
-                })
-                this.setState({ data: parsedData })
-            }).catch(err => {
-                this.setState({ data: [], loggedIn: false })
-                console.error(err)
-            })
+            this.getAllData()
         }
     }
 
@@ -49,10 +41,23 @@ class MainProvider extends Component {
         if (jwt) {
             this.requests = new Requests({token: jwt})
             this.setState({ loggedIn: true })
+            this.getAllData()
         } else {
             this.requests = new Requests()
             this.setState({ loggedIn: false })
         }
+    }
+
+    getAllData() {
+        this.requests.get('/docker-compose/get-all/0').then(res => {
+            const parsedData = res.data.map(item => {
+                return JSON.parse(item.dockerData)
+            })
+            this.setState({ data: parsedData })
+        }).catch(err => {
+            this.setState({ data: [], loggedIn: false })
+            console.error(err)
+        })
     }
   
     async login(data) {
