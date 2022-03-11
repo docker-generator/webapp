@@ -22,7 +22,7 @@ const styles = {
 
 export default function EditorPreview() {
   const { id } = useParams();
-  const { state } = useContext(MainContext);
+  const { state, actions } = useContext(MainContext);
   const [ data, setData ] = useState(state.data.find(config => config.id === id));
 
   useEffect(() => {
@@ -47,7 +47,12 @@ export default function EditorPreview() {
           <buttons.white style={ { background: 'white' } } onClick={ download }>Download</buttons.white>
         </containers.col_left>
         <containers.col_left style={ { marginLeft: '40px' } }>
-          { state.loggedIn && <buttons.white style={ { background: 'white' } }>Save</buttons.white> }
+          {state.loggedIn && <buttons.white
+            onClick={() => actions.updateOnServer({ id: data.id, name: data.name, dockerData: JSON.stringify(data) })}
+            style={{ background: 'white' }}
+          >
+            Save
+          </buttons.white>}
         </containers.col_left>
       </containers.row_left>
     </containers.col_right>
