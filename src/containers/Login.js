@@ -1,15 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { MainContext } from 'stores'
 import { containers } from 'styles'
 import { Form } from 'components'
 
 
 export default function Login() {
-  const { actions } = useContext(MainContext);
+  const { state, actions } = useContext(MainContext);
+  const history = useHistory()
 
   const onSubmit = (data) => {
     actions.login(data);
   };
+
+  useEffect(() => {
+    if (state.loggedIn) {
+      history.push('/')
+    }
+  }, [state.loggedIn])
 
   const formOptions = {
     onSubmit: onSubmit,
